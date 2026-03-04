@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 
 const CONTACT_INFO = [
-  { icon: "📍", label: "Office", value: "Sector 45, Gurgaon, Haryana - 122003" },
+  { icon: "📍", label: "Office", value: "531, near St. Angel School, Sector 45, Gurugram, Haryana 122003" },
   { icon: "📞", label: "Call Us", value: "+91 98765 43210" },
   { icon: "✉️", label: "Email", value: "info@buildglory.in" },
   { icon: "⏰", label: "Working Hours", value: "Mon–Sat: 10:00 AM – 7:00 PM" },
@@ -152,7 +152,7 @@ export default function Contact() {
               {loading ? (
                 <span className="btn-loading">Sending...</span>
               ) : (
-                <>Get Free Consultation 🚀</>
+                <>Get Free Consultation </>
               )}
             </button>
           </form>

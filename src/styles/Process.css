@@ -1,98 +1,137 @@
 .process-section {
-  padding: 6rem 5vw;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.process-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.process-header h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: var(--white);
-  margin: 0.5rem 0;
-}
-
-.process-header p {
-  color: var(--text-muted);
-}
-
-/* Grid */
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-/* Step card */
-.process-step {
-  background: var(--dark-2);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--radius);
-  padding: 2rem 1.8rem;
   position: relative;
-  transition: var(--transition);
+  background: var(--dark);
+  padding: 90px 4vw 80px;
+  overflow: hidden;
+}
+.proc-glow {
+  position:absolute; border-radius:50%; pointer-events:none; filter:blur(110px);
+}
+.pg1 { width:500px;height:500px;top:-100px;left:-80px;
+  background:radial-gradient(circle,rgba(201,168,76,.07),transparent 70%); }
+.pg2 { width:500px;height:500px;bottom:-100px;right:-80px;
+  background:radial-gradient(circle,rgba(201,168,76,.05),transparent 70%); }
+
+/* Header */
+.proc-header {
+  text-align:center; max-width:650px; margin:0 auto 50px;
+  opacity:0; transform:translateY(20px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.proc-header.ph-in { opacity:1; transform:translateY(0); }
+.proc-h2 {
+  font-family:'Cinzel',Georgia,serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:900; color:var(--text); margin:.7rem 0; line-height:1.2;
+}
+.proc-gold {
+  background:linear-gradient(135deg,#f5d060,#c9a84c,#f0e090,#c9a84c);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.proc-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:clamp(.85rem,1.3vw,1rem); color:var(--text-muted); line-height:1.7;
 }
 
-.process-step:hover {
-  border-color: var(--gold-border);
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+/* Scene */
+.proc-scene {
+  position:relative; margin:0 auto;
 }
 
-.step-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+/* SVG connector */
+.proc-svg {
+  position:absolute; top:50%; left:0; width:100%; height:260px;
+  transform:translateY(-50%); pointer-events:none; z-index:0;
+}
+.proc-path { animation:pdash 3s linear infinite; }
+@keyframes pdash { to { stroke-dashoffset:-54; } }
+
+/* Nodes row */
+.proc-nodes {
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:repeat(6,1fr);
+  min-height:420px; align-items:center;
 }
 
-.step-icon {
-  font-size: 2rem;
-  animation: iconBob 3s ease-in-out infinite;
+/* Single node */
+.pnode {
+  display:flex; flex-direction:column; align-items:center;
+  opacity:0;
+  transition:opacity .55s ease var(--d,0s), transform .55s ease var(--d,0s);
+}
+.ptop { transform:translateY(16px); justify-content:flex-end;   padding-bottom:8px; }
+.pbot { transform:translateY(-16px); justify-content:flex-start; padding-top:8px; }
+.pvis { opacity:1; transform:translateY(0) !important; }
+
+/* Label */
+.plabel {
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; max-width:140px;
+  font-family:'Raleway',sans-serif;
+  font-size:.75rem; font-weight:700;
+  color:var(--text); line-height:1.45;
+  gap:.0rem;
+}
+.plabel span { display:block; }
+.ptop .plabel { margin-bottom:64px; }
+.pbot .plabel { margin-top:22px; }
+
+/* Circle */
+.pcircle {
+  position:relative; width:96px; height:96px; flex-shrink:0;
+}
+.pinner {
+  width:96px; height:96px; border-radius:50%;
+  background:linear-gradient(135deg,#1a2840,#0f1a30);
+  border:2.5px solid var(--gold,#c9a84c);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; z-index:2;
+  box-shadow:0 0 0 8px rgba(201,168,76,.07), 0 6px 24px rgba(0,0,0,.5);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.pnode:hover .pinner {
+  transform:scale(1.12);
+  box-shadow:0 0 0 14px rgba(201,168,76,.12),
+             0 10px 36px rgba(0,0,0,.55),
+             0 0 28px rgba(201,168,76,.22);
+}
+.pico { width:44px; height:44px; color:#c9a84c;
+  display:flex; align-items:center; justify-content:center; }
+.pico svg { width:100%; height:100%; }
+
+/* Rings */
+.pring {
+  position:absolute; top:50%; left:50%;
+  border-radius:50%; border:1.5px solid rgba(201,168,76,.5);
+  transform:translate(-50%,-50%);
+  width:96px; height:96px; opacity:0;
+  animation:prExpand 2.8s ease-out infinite;
+}
+.pr2 { animation-delay:.7s; }
+@keyframes prExpand {
+  0%   { width:96px;  height:96px;  opacity:.4; }
+  100% { width:160px; height:160px; opacity:0; }
 }
 
-@keyframes iconBob {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-4px); }
-}
-
-.step-num {
-  font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: rgba(201, 168, 76, 0.12);
-  line-height: 1;
-  user-select: none;
-}
-
-.step-title {
-  font-size: 1.1rem;
-  color: var(--gold);
-  margin-bottom: 0.7rem;
-}
-
-.step-desc {
-  color: var(--text-muted);
-  font-size: 0.88rem;
-  line-height: 1.75;
-}
-
-/* Connector arrow (hidden on mobile) */
-.step-connector {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .proc-svg { display:none; }
+  .proc-nodes {
+    grid-template-columns:1fr; min-height:auto; gap:0;
   }
-}
-
-@media (max-width: 560px) {
-  .process-grid {
-    grid-template-columns: 1fr;
+  .pnode {
+    flex-direction:row !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    padding:1.4rem 1rem 1.4rem 60px !important;
+    border-left:2px solid rgba(201,168,76,.2);
+    margin-left:48px; position:relative; gap:1rem;
   }
+  .pnode:last-child { border-left-color:transparent; }
+  .pcircle { position:absolute; left:-50px; top:50%; transform:translateY(-50%);
+    width:76px; height:76px; }
+  .pinner { width:76px; height:76px; }
+  .pr1,.pr2 { width:76px; height:76px; }
+  .pico { width:36px; height:36px; }
+  .ptop .plabel,.pbot .plabel { margin:0; text-align:left; align-items:flex-start; }
 }
