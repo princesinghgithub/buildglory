@@ -1,5 +1,5 @@
 // import { useEffect, useRef, useState } from "react";
-// import "../styles/OurStory.css";
+// import "../styles/Ourstory.css";
 
 // /* ─────────────────────────────
 //    TEAM DATA — BuildGlory
@@ -272,7 +272,7 @@
 
 
 import { useEffect, useRef, useState } from "react";
-import "../styles/OurStory.css";
+import "../styles/Ourstory.css";
 
 /* ─────────────────────────────
    TEAM DATA — BuildGlory
