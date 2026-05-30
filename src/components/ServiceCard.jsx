@@ -1,4 +1,4 @@
-import "../styles/ServiceCard.css";
+import "../styles/Servicecard.css";
 
 export default function ServiceCard({ icon, title, desc, color, index }) {
   return (
