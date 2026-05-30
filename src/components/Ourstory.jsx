@@ -20,7 +20,7 @@
 //     badge: "Strategist",
 //     quote: "Every project is a partnership — between our vision and your dream.",
 //     bio: "Sanjeev drives BuildGlory's growth strategy and client partnerships with 12+ years of industry expertise. His sharp business acumen and deep client relationships have made BuildGlory the most trusted name across Delhi NCR.",
-//     photo: "/Sanjeev-Rathee-2.jpg",
+//     photo: "/Sanjeev-Rathee-2.jpeg",
 //     color: "#4a90c4",
 //   },
 // ];
@@ -293,7 +293,7 @@ const FOUNDERS = [
     badge: "Strategist",
     quote: "Every project is a partnership — between our vision and your dream.",
     bio: "Sanjeev drives BuildGlory's growth strategy and client partnerships with 12+ years of industry expertise. His sharp business acumen and deep client relationships have made BuildGlory the most trusted name across Delhi NCR.",
-    photo: "/Sanjeev-Rathee-2.jpg",
+    photo: "/Sanjeev-Rathee-2.jpeg",
     color: "#4a90c4",
   },
 ];
@@ -327,8 +327,7 @@ const TEAM = [
   { name: "Shivani Rai",        role: "HR Manager",            specialty: "People & Culture",  photo: "/shivani.jpeg", color: "#e67e22" },
   { name: "MD Shad",            role: "Interior Designer",     specialty: "Creative Vision",   photo: "/md.jpg", color: "#c0392b" },
   { name: "Raja Singh",         role: "Digital Marketer",      specialty: "Growth Strategy",  photo: "/Raja-singh-scaled.jpg", color: "#8e44ad" },
-   { name: "Pooja Adhikari",         role: "Digital Marketer",      specialty: "SEO",photo: "/pooja.jpeg", color: "#8e44ad" },
-   { name: "Ashtha Shah",         role: "Digital Marketer",      specialty: "Content Creator",photo: "/Ashtha.jpeg", color: "#8e44ad" },
+{ name: "Ashtha Shah",         role: "Digital Marketer",      specialty: "Content Creator",photo: "/Ashtha.jpeg", color: "#8e44ad" },
 
 ];
 
