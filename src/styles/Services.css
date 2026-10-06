@@ -1,0 +1,118 @@
+/* =============================================
+   SERVICES — editorial hover list
+   ============================================= */
+.services-section {
+  position: relative;
+  background: var(--dark);
+  padding: clamp(90px, 12vw, 160px) 5vw;
+}
+
+.services-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas: "eyebrow eyebrow" "title lead";
+  align-items: end;
+  column-gap: 4rem;
+  max-width: 1320px; margin: 0 auto clamp(3rem, 6vw, 5.5rem);
+}
+.services-head .eyebrow { grid-area: eyebrow; margin-bottom: 1.6rem; }
+.services-title { grid-area: title; font-size: clamp(2.8rem, 6vw, 5.4rem); margin: 0; }
+.services-lead {
+  grid-area: lead;
+  font-size: 1rem; font-weight: 300; line-height: 1.85;
+  color: var(--text-muted); max-width: 400px; margin: 0 0 .6rem;
+}
+
+.services-wrap { position: relative; max-width: 1320px; margin: 0 auto; }
+.services-list {
+  list-style: none;
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.service-row { position: relative; }
+.service-row .rv-line { position: absolute; top: 0; left: 0; right: 0; background: var(--gold-border); }
+
+.sr-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1.25fr) minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 2rem;
+  padding: clamp(1.6rem, 2.6vw, 2.4rem) 0;
+  color: var(--heading);
+  transition: opacity .5s ease, color .5s ease;
+}
+/* dim the rows you're not on */
+.services-list.has-active .service-row:not(.is-active) .sr-inner { opacity: .35; }
+
+.sr-num {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.1rem; color: var(--gold);
+}
+.sr-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.8vw, 3.4rem);
+  font-weight: 400; line-height: 1.05; letter-spacing: -.01em;
+  transition: transform .7s var(--ease-out), font-style .3s;
+}
+.service-row.is-active .sr-title { transform: translateX(18px); font-style: italic; }
+.sr-desc {
+  font-size: .92rem; font-weight: 300; line-height: 1.75;
+  color: var(--text-muted);
+}
+.sr-arrow {
+  justify-self: end;
+  display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  transition: transform .6s var(--ease-out), background-color .4s, color .4s;
+}
+.service-row.is-active .sr-arrow { transform: rotate(45deg); background: var(--gold-dark); color: #fffdf9; border-color: var(--gold-dark); }
+.sr-thumb { display: none; }
+
+/* floating preview (desktop) */
+.services-float {
+  position: absolute; top: 0; left: 0; z-index: 5;
+  pointer-events: none;
+  will-change: transform;
+}
+.sf-frame {
+  position: relative;
+  width: 300px; aspect-ratio: 4 / 5;
+  margin: -190px 0 0 -150px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(74,52,30,.55);
+  transform: scale(.4); opacity: 0;
+  transition: transform .7s var(--ease-out), opacity .4s ease;
+}
+.services-float.is-visible .sf-frame { transform: scale(1); opacity: 1; }
+.sf-frame img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  clip-path: inset(100% 0 0 0);
+  transform: scale(1.2);
+  transition: clip-path .8s var(--ease-io), transform 1.2s var(--ease-out);
+}
+.sf-frame img.is-active { clip-path: inset(0 0 0 0); transform: scale(1); z-index: 1; }
+
+@media (hover: none), (max-width: 900px) {
+  .services-float { display: none; }
+  .services-list.has-active .service-row:not(.is-active) .sr-inner { opacity: 1; }
+  .service-row.is-active .sr-title { transform: none; font-style: normal; }
+}
+
+@media (max-width: 900px) {
+  .services-head { grid-template-columns: 1fr; grid-template-areas: "eyebrow" "title" "lead"; }
+  .services-lead { margin-top: 1.4rem; }
+  .sr-inner {
+    grid-template-columns: 1fr 96px;
+    grid-template-areas: "num thumb" "title thumb" "desc desc";
+    row-gap: .5rem; column-gap: 1.2rem;
+  }
+  .sr-num { grid-area: num; }
+  .sr-title { grid-area: title; font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .sr-desc { grid-area: desc; margin-top: .4rem; }
+  .sr-thumb { grid-area: thumb; display: block; aspect-ratio: 1; overflow: hidden; align-self: start; }
+  .sr-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .sr-arrow { display: none; }
+}

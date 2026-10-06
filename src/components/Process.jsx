@@ -57,14 +57,14 @@ export default function Process() {
         <svg className="proc-svg" viewBox="0 0 1200 260" preserveAspectRatio="none">
           <defs>
             <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#c9a84c" stopOpacity=".3"/>
-              <stop offset="40%" stopColor="#f5d060" stopOpacity=".9"/>
-              <stop offset="60%" stopColor="#f5d060" stopOpacity=".9"/>
-              <stop offset="100%" stopColor="#c9a84c" stopOpacity=".3"/>
+              <stop offset="0%" stopColor="#8e6638" stopOpacity=".3"/>
+              <stop offset="40%" stopColor="#b88a55" stopOpacity=".9"/>
+              <stop offset="60%" stopColor="#b88a55" stopOpacity=".9"/>
+              <stop offset="100%" stopColor="#8e6638" stopOpacity=".3"/>
             </linearGradient>
             <filter id="pglow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             <marker id="parr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-              <polygon points="0 0,10 3.5,0 7" fill="#f5d060"/>
+              <polygon points="0 0,10 3.5,0 7" fill="#8e6638"/>
             </marker>
           </defs>
           {/* bot=190 top=70  x positions: 100,300,500,700,900,1100 */}

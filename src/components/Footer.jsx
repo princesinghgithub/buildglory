@@ -32,7 +32,8 @@ export default function Footer() {
         {/* Brand */}
         <div className="footer-brand">
           <div className="footer-logo">
-            🏗️ Build<span>Glory</span>
+            <span className="footer-mark">BG</span>
+            <span>Build<em>Glory</em></span>
           </div>
           <p>
             Building dreams with precision, passion, and glory since 1985.

@@ -1,83 +1,102 @@
+import { useRef } from "react";
+import { Reveal, SplitLine } from "../lib/motion";
+import { useScrollProgress } from "../lib/hooks";
 import "../styles/About.css";
 
 const FEATURES = [
-  { icon: "🏛️", text: "Award-Winning Architecture" },
-  { icon: "⚡", text: "40-Day Delivery Promise" },
-  { icon: "💎", text: "Premium Materials Only" },
-  { icon: "🎨", text: "Custom Design Solutions" },
-  { icon: "📐", text: "Expert Space Planning" },
-  { icon: "🔒", text: "5-Year Workmanship Warranty" },
+  "Award-winning architecture",
+  "40-day delivery promise",
+  "Premium materials only",
+  "Custom design solutions",
+  "Expert space planning",
+  "5-year workmanship warranty",
 ];
 
 const PROMISES = [
-  "On-Time Delivery, Every Time",
-  "100% Budget Transparency",
-  "Post-Project Support",
-  "Premium Quality Materials",
+  "On-time delivery, every time",
+  "100% budget transparency",
+  "Post-project support",
 ];
 
 export default function About() {
+  const mediaRef = useRef(null);
+  const p = useScrollProgress(mediaRef);
+
   return (
     <section id="about" className="about-section">
       <div className="about-inner">
-        {/* Left: Text */}
-        <div className="about-text">
-          <span className="section-tag">About BuildGlory</span>
-          <h2 className="about-title">
-            Innovating Spaces With<br />
-            <span className="text-gold">40+ Years of Expertise</span>
+        {/* Images */}
+        <div className="about-media" ref={mediaRef}>
+          <Reveal className="about-img-main" data-cursor="Studio">
+            <span className="rv-img">
+              <img
+                src="/projects/bedroom-minimal.jpg"
+                alt="Minimal bedroom interior by BuildGlory"
+                loading="lazy"
+                style={{ translate: `0 ${(p - 0.5) * -60}px` }}
+              />
+            </span>
+          </Reveal>
+          <Reveal className="about-img-small" style={{ "--rd": ".35s" }} data-cursor="Kitchen">
+            <span className="rv-img">
+              <img
+                src="/projects/kitchen.jpg"
+                alt="Modular kitchen interior by BuildGlory"
+                loading="lazy"
+                style={{ translate: `0 ${(p - 0.5) * 40}px` }}
+              />
+            </span>
+          </Reveal>
+
+          <div className="about-seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <path id="seal-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
+              </defs>
+              <text>
+                <textPath href="#seal-circle">ARCHITECTURE • INTERIORS • TURNKEY • </textPath>
+              </text>
+            </svg>
+            <span className="seal-num">40<sup>+</sup></span>
+          </div>
+        </div>
+
+        {/* Copy */}
+        <Reveal className="about-text" threshold={0.25}>
+          <span className="eyebrow rv-up">The Studio</span>
+          <h2 className="display about-title">
+            <SplitLine text="We design homes" /><br />
+            <SplitLine text="that hold" start={3} /> <em><SplitLine text="your story." start={5} /></em>
           </h2>
-          <p className="about-desc">
-            At <strong>BuildGlory</strong>, we take pride in being reliable architects and
-            interior designers serving Delhi NCR &amp; Gurgaon — creating spaces that truly
-            inspire. We approach every project with a clear understanding that good design goes
-            beyond appearance — it must support comfort, functionality, and long-term usability.
+          <p className="about-desc rv-up" style={{ "--rd": ".3s" }}>
+            At <strong>BuildGlory</strong>, we are architects and interior designers serving
+            Delhi NCR &amp; Gurgaon — creating spaces that truly inspire. Good design goes beyond
+            appearance; it must support comfort, function and long-term living.
           </p>
-          <p className="about-desc">
-            By carefully listening to our clients and studying their requirements, we design
-            spaces that reflect their vision while maintaining structural and aesthetic balance.
-            From residential homes to commercial environments, we integrate architecture and
-            interior design seamlessly, ensuring every detail works in harmony.
+          <p className="about-desc rv-up" style={{ "--rd": ".4s" }}>
+            We listen first, then shape spaces that reflect your vision while keeping structure
+            and aesthetics in balance — from residential homes to commercial environments,
+            architecture and interiors in one seamless hand.
           </p>
-          <div className="feature-pills">
-            {FEATURES.map((f) => (
-              <div key={f.text} className="feature-pill">
-                <span>{f.icon}</span>
-                <span>{f.text}</span>
-              </div>
+
+          <ul className="about-features">
+            {FEATURES.map((f, i) => (
+              <li key={f} className="rv-up" style={{ "--rd": `${0.45 + i * 0.06}s` }}>
+                <span className="af-num">{String(i + 1).padStart(2, "0")}</span>
+                {f}
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
 
-        {/* Right: Promise Card */}
-        <div className="about-right">
-          <div className="promise-card">
-            <div className="promise-card-accent"></div>
-            <div className="promise-card-icon">🏆</div>
-            <h3>Our Promise to You</h3>
-            <p>
-              Complete home interiors with custom designs, premium materials, and expert
-              space planning — guaranteed quality, delivered on time.
-            </p>
-            <ul className="promise-list">
-              {PROMISES.map((p) => (
-                <li key={p}>
-                  <span className="check">✓</span>
-                  {p}
-                </li>
-              ))}
-            </ul>
-            <a href="#contact" className="btn btn-primary">
-              Book Free Consultation
+          <div className="about-foot rv-up" style={{ "--rd": ".85s" }}>
+            <a href="#contact" className="btn-luxe">
+              Book Free Consultation <span className="arrow">→</span>
             </a>
+            <ul className="about-promises">
+              {PROMISES.map((p) => <li key={p}>{p}</li>)}
+            </ul>
           </div>
-
-          {/* Floating badge */}
-          <div className="float-badge">
-            <span className="float-badge-num">40+</span>
-            <span className="float-badge-text">Years<br />Experience</span>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

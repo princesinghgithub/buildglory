@@ -1,6 +1,8 @@
 /* ===== Stats Section ===== */
 .stats-section {
-  background: linear-gradient(135deg, #8b6914 0%, #5a420c 50%, #8b6914 100%);
+  background: linear-gradient(135deg, #2e241e 0%, #241c17 50%, #2e241e 100%);
+  border-top: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--gold-border);
   padding: 3.5rem 2rem;
   position: relative;
   overflow: hidden;
@@ -12,8 +14,8 @@
   inset: 0;
   background: repeating-linear-gradient(
     45deg,
-    rgba(255, 255, 255, 0.025) 0,
-    rgba(255, 255, 255, 0.025) 1px,
+    rgba(201, 162, 122, 0.06) 0,
+    rgba(201, 162, 122, 0.06) 1px,
     transparent 1px,
     transparent 30px
   );

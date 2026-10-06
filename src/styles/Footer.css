@@ -1,5 +1,5 @@
 .footer {
-  background: #040508;
+  background: #1d1612;
   border-top: 1px solid var(--gold-border);
   padding: 5rem 5vw 2rem;
 }
@@ -14,14 +14,24 @@
 
 /* Brand */
 .footer-logo {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--heading);
   margin-bottom: 1rem;
 }
 
-.footer-logo span { color: var(--gold); }
+.footer-logo {
+  display: flex; align-items: center; gap: .8rem;
+  font-weight: 500;
+}
+.footer-logo em { font-style: italic; color: var(--gold); }
+.footer-mark {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  border: 1px solid var(--gold-border);
+  font-size: .95rem; font-weight: 600; letter-spacing: .08em; color: var(--gold);
+}
 
 .footer-brand p {
   color: var(--text-muted);
@@ -70,7 +80,7 @@
 
 /* Columns */
 .footer-col h4 {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;

@@ -14,7 +14,7 @@
 /* Left info */
 .contact-info h2 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  color: var(--white);
+  color: var(--heading);
   margin: 0.5rem 0 1rem;
 }
 
@@ -83,7 +83,7 @@
   background: var(--gold);
   color: var(--dark);
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(201,168,76,0.3);
+  box-shadow: 0 6px 16px rgba(142,102,56,0.3);
 }
 
 /* Right form */
@@ -96,12 +96,12 @@
 }
 
 .form-header {
-  background: linear-gradient(135deg, var(--gold-dark), #6b4f0a);
+  background: linear-gradient(135deg, #5e4227, #3d2b1b);
   padding: 1.6rem 2rem;
 }
 
 .form-header h3 {
-  color: var(--white);
+  color: #fffdf9;
   font-size: 1.2rem;
   margin-bottom: 0.2rem;
 }
@@ -112,9 +112,9 @@
 }
 
 .form-success {
-  background: rgba(163, 217, 119, 0.12);
-  border-bottom: 1px solid rgba(163, 217, 119, 0.3);
-  color: #a3d977;
+  background: rgba(95, 115, 80, 0.10);
+  border-bottom: 1px solid rgba(95, 115, 80, 0.3);
+  color: var(--success);
   padding: 1rem 2rem;
   font-weight: 600;
   font-size: 0.92rem;
@@ -151,11 +151,11 @@
 .contact-form textarea {
   width: 100%;
   background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(42,35,29,0.12);
   border-radius: var(--radius-sm);
   padding: 0.8rem 1rem;
   color: var(--text);
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.92rem;
   outline: none;
   transition: border-color 0.25s;
@@ -165,8 +165,8 @@
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-  border-color: rgba(201, 168, 76, 0.5);
-  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.08);
+  border-color: rgba(142,102,56, 0.5);
+  box-shadow: 0 0 0 3px rgba(142,102,56, 0.08);
 }
 
 .contact-form input::placeholder,
@@ -177,7 +177,7 @@
 .contact-form select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238e6638' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
@@ -210,8 +210,8 @@
 .btn-loading::after {
   content: '';
   width: 14px; height: 14px;
-  border: 2px solid rgba(0,0,0,0.3);
-  border-top-color: var(--dark);
+  border: 2px solid rgba(255,253,249,0.35);
+  border-top-color: #fffdf9;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }

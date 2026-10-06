@@ -2,10 +2,10 @@ import Counter from "./Counter";
 import "../styles/Stats.css";
 
 const STATS = [
-  { end: 40, suffix: "+", label: "Years of Legacy", icon: "🏛️" },
-  { end: 500, suffix: "+", label: "Completed Projects", icon: "🏗️" },
-  { end: 300, suffix: "+", label: "Interior Designs", icon: "🎨" },
-  { end: 15, suffix: "+", label: "Cities Served", icon: "🌆" },
+  { end: 40, suffix: "+", label: "Years of Legacy" },
+  { end: 500, suffix: "+", label: "Completed Projects" },
+  { end: 300, suffix: "+", label: "Interior Designs" },
+  { end: 15, suffix: "+", label: "Cities Served" },
 ];
 
 export default function Stats() {

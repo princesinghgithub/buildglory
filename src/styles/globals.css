@@ -1,26 +1,36 @@
 /* ========== GOOGLE FONTS ========== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap');
 
 /* ========== CSS VARIABLES ========== */
 :root {
-  /* Colors */
-  --gold:         #c9a84c;
-  --gold-light:   #f0d080;
-  --gold-dark:    #8b6914;
-  --gold-dim:     rgba(201, 168, 76, 0.12);
-  --gold-border:  rgba(201, 168, 76, 0.22);
+  /* Colors — warm ivory + brass interior palette.
+     Token names are historical: --gold is brass, --dark* are the page/surface tones. */
+  --gold:         #8e6638;   /* brass */
+  --gold-light:   #7a5733;   /* deep bronze — emphasis text */
+  --gold-dark:    #5e4227;   /* walnut */
+  --gold-dim:     rgba(142, 102, 56, 0.10);
+  --gold-border:  rgba(142, 102, 56, 0.26);
 
-  --dark:         #080c18;
-  --dark-2:       #0f1726;
-  --dark-3:       #182035;
-  --dark-4:       #243048;
+  --dark:         #f6f1e9;   /* ivory page */
+  --dark-2:       #efe7db;   /* linen — alternate sections */
+  --dark-3:       #fffdf9;   /* cards */
+  --dark-4:       #e4d8c6;   /* sand */
 
-  --text:         #e2e8f0;
-  --text-muted:   #94a3b8;
-  --text-dim:     #64748b;
+  --heading:      #1f1915;
+  --text:         #2a231d;
+  --text-muted:   #6b5f54;
+  --text-dim:     #857668;
 
   --white:        #ffffff;
-  --success:      #a3d977;
+  --success:      #5f7350;   /* sage */
+
+  /* Type */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body:    'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Motion */
+  --ease-out:     cubic-bezier(.19, 1, .22, 1);
+  --ease-io:      cubic-bezier(.77, 0, .18, 1);
 
   /* Sizes */
   --radius-sm:    8px;
@@ -28,12 +38,36 @@
   --radius-lg:    20px;
 
   /* Shadows */
-  --shadow:       0 20px 60px rgba(0, 0, 0, 0.5);
-  --shadow-gold:  0 8px 30px rgba(201, 168, 76, 0.25);
+  --shadow:       0 20px 50px rgba(74, 52, 30, 0.12);
+  --shadow-gold:  0 8px 26px rgba(142, 102, 56, 0.28);
 
   /* Transitions */
   --transition:   all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Dark walnut bands (stats strip, footer) — same token names, inverted values */
+.theme-walnut,
+.stats-section,
+.footer {
+  --gold:         #c9a27a;
+  --gold-light:   #e6c9a4;
+  --gold-dark:    #9c7244;
+  --gold-dim:     rgba(201, 162, 122, 0.12);
+  --gold-border:  rgba(201, 162, 122, 0.26);
+
+  --dark:         #241c17;
+  --dark-2:       #2e241e;
+  --dark-3:       #382c24;
+  --dark-4:       #4a3b30;
+
+  --heading:      #fbf6ee;
+  --text:         #f3ece2;
+  --text-muted:   #cdbfae;
+  --text-dim:     #a39380;
+
+  color: var(--text);
+}
+
 
 /* ========== RESET ========== */
 *, *::before, *::after {
@@ -48,7 +82,7 @@ html {
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--dark);
   color: var(--text);
   overflow-x: hidden;
@@ -57,7 +91,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   line-height: 1.2;
 }
 
@@ -75,14 +109,14 @@ ul { list-style: none; }
 
 button {
   cursor: pointer;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* ========== SHARED UTILITIES ========== */
 .section-tag {
   display: inline-block;
   color: var(--gold);
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -110,7 +144,7 @@ button {
   gap: 0.5rem;
   padding: 0.85rem 2rem;
   border-radius: 50px;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
@@ -127,7 +161,7 @@ button {
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.4);
+  box-shadow: 0 12px 40px rgba(142, 102, 56, 0.4);
 }
 
 .btn-outline {
@@ -141,3 +175,106 @@ button {
   color: var(--gold);
   transform: translateY(-3px);
 }
+
+/* ========== SMOOTH SCROLL (lenis) ========== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+::selection { background: rgba(142, 102, 56, .22); color: var(--heading); }
+
+/* ========== EDITORIAL TYPE HELPERS ========== */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .9rem;
+  font-family: var(--font-body);
+  font-size: .72rem; font-weight: 500;
+  letter-spacing: .32em; text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before { content: ''; width: 42px; height: 1px; background: currentColor; }
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.01em;
+  color: var(--heading);
+}
+.display em { font-style: italic; color: var(--gold); }
+
+/* ========== SCROLL REVEALS ==========
+   Put .rv-* on children of a <Reveal> (which toggles .is-in). --rd = delay */
+.rv-up, .rv-fade, .rv-img, .rv-line {
+  transition-delay: var(--rd, 0s);
+}
+.rv-up {
+  opacity: 0; transform: translateY(40px);
+  transition-property: opacity, transform;
+  transition-duration: 1s, 1.2s;
+  transition-timing-function: ease, var(--ease-out);
+}
+.rv-fade { opacity: 0; transition: opacity 1.2s ease var(--rd, 0s); }
+.rv-line {
+  display: block; height: 1px; background: var(--gold-border);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 1.4s var(--ease-io) var(--rd, 0s);
+}
+/* image: wipe up from bottom + settle zoom.
+   Never put .rv-img on the observed <Reveal> element itself — a fully clipped
+   element never counts as intersecting, so it would stay hidden forever. */
+.rv-img { overflow: hidden; clip-path: inset(100% 0 0 0); transition: clip-path 1.4s var(--ease-io) var(--rd, 0s); }
+.rv-img > img { transform: scale(1.25); transition: transform 2s var(--ease-out) var(--rd, 0s); }
+
+.is-in .rv-up, .is-in.rv-up       { opacity: 1; transform: none; }
+.is-in .rv-fade, .is-in.rv-fade   { opacity: 1; }
+.is-in .rv-line, .is-in.rv-line   { transform: scaleX(1); }
+.is-in .rv-img, .is-in.rv-img     { clip-path: inset(0 0 0 0); }
+.is-in .rv-img > img, .is-in.rv-img > img { transform: scale(1); }
+
+/* masked word rise */
+.split-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+.split-w + .split-w { margin-left: .24em; }
+.split-in {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1.2s var(--ease-out);
+  transition-delay: calc(var(--base, 0s) + var(--i) * .07s);
+}
+.is-in .split-in { transform: none; }
+
+/* ========== LUXE BUTTONS ========== */
+.btn-luxe {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: inline-flex; align-items: center; gap: .9rem;
+  padding: 1.05rem 2.1rem;
+  font-family: var(--font-body); font-size: .78rem; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: #fffdf9; background: var(--gold-dark);
+  border: 1px solid var(--gold-dark);
+  transition: color .5s var(--ease-out), border-color .5s;
+}
+.btn-luxe::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: var(--gold);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .6s var(--ease-out);
+}
+.btn-luxe:hover::before { transform: scaleY(1); }
+.btn-luxe .arrow { transition: transform .5s var(--ease-out); }
+.btn-luxe:hover .arrow { transform: translateX(6px); }
+
+.btn-luxe.ghost { background: transparent; color: var(--heading); border-color: rgba(42,35,29,.3); }
+.btn-luxe.ghost::before { background: var(--heading); }
+.btn-luxe.ghost:hover { color: #fffdf9; border-color: var(--heading); }
+
+.btn-luxe.light { background: transparent; color: #fffdf9; border-color: rgba(255,253,249,.55); }
+.btn-luxe.light::before { background: #fffdf9; }
+.btn-luxe.light:hover { color: var(--heading); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-up, .rv-fade, .rv-img, .rv-img > img, .rv-line, .split-in {
+    opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important;
+  }
+}
+
+html.is-loading, html.is-loading body { overflow: hidden; }
