@@ -325,10 +325,14 @@ const TEAM = [
   { name: "Manju Patel", role: "Principal Architect & Interior Designer Lead",   specialty: "10 yrs mastery",   photo: "/manju_patel.jpeg", color: "#9b59b6" },
   { name: "Hemanth ",        role: "Principal Architect",        specialty: "10 yrs on-site", photo: "/hemant.jpeg", color: "#1abc9c" },
   { name: "Shivani Rai",        role: "HR Manager",            specialty: "People & Culture",  photo: "/shivani.jpeg", color: "#e67e22" },
-  { name: "MD Shad",            role: "Interior Designer",     specialty: "Creative Vision",   photo: "/md.jpg", color: "#c0392b" },
-  { name: "Raja Singh",         role: "Digital Marketer",      specialty: "Growth Strategy",  photo: "/Raja-singh-scaled.jpg", color: "#8e44ad" },
-{ name: "Ashtha Shah",         role: "Digital Marketer",      specialty: "Content Creator",photo: "/Ashtha.jpeg", color: "#8e44ad" },
-
+  { name: "Shailendra Kumar Jain", role: "Principal Architect", specialty: "35+ yrs experience", photo: "/shailendra.jpeg", color: "#2c3e50" },
+  { name: "Sanjeev Rathee",     role: "Business Development",  specialty: "Client Growth",     photo: "/sanjeev.jpg", color: "#2980b9" },
+  { name: "Sudhir Kumar",       role: "Civil Engineer",        specialty: "15 yrs on-site",    photo: "/sudhir.jpg", color: "#27ae60" },
+  { name: "Priyanka Kunwar",    role: "Performance Marketer",  specialty: "Ad Campaigns",      photo: "/priyanka.jpeg", color: "#c0392b" },
+  { name: "Nikhil",             role: "Digital Marketing Specialist", specialty: "SEO & Social", photo: "/nikhil.jpeg", color: "#8e44ad" },
+  { name: "Priti Jha",          role: "Content Creation & Anchor", specialty: "Storytelling",  photo: "/priti.jpeg", color: "#d35400" },
+  { name: "Reena Verma",        role: "Social Media Executive", specialty: "Audience Engagement", photo: "/reena.jpeg", color: "#16a085" },
+  { name: "Vedika",             role: "Junior Architect",      specialty: "Space Planning",    photo: "/vedika.jpeg", color: "#7f8c8d" },
 ];
 
 /* ─────────────────────────────
